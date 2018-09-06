@@ -55,7 +55,9 @@ Complete the definitions of the required classes and functions by editing `util.
 Write a function called `matrix_multiply` which multiplies two 2-dimensional lists of real numbers. For instance,
 
 ```python
-mm = util.matrix_multiply([[1, 2], [3, 4]], [[5, 6], [7, 8]]) 
+from util import Util
+ut = Util()
+mm = ut.matrix_multiply([[1, 2], [3, 4]], [[5, 6], [7, 8]]) 
 # should evaluate to
 assert(mm == [[ 19, 22],[43, 50]])
 ```
@@ -79,7 +81,7 @@ Complete the definitions of the methods `init`, `push` and `pop` in the Python c
 
 
 ```python
-q = util.MyQueue()
+q = ut.MyQueue()
 q.push(1); q.push(2)
 # should evaluate to
 assert(q.pop() == 1)
@@ -110,7 +112,7 @@ Write three functions called `add_position_iter`, `add_position_recur`, and `add
 
 
 ```python
-ret = util.add_position_iter([7, 5, 1, 4])
+ret = ut.add_position_iter([7, 5, 1, 4])
 assert(ret == [7, 6, 3, 7])
 ```
 
@@ -119,7 +121,7 @@ Remember that this function should not be destructive i.e.,
 
 ```python
 a = [7, 5, 1, 4]
-ret = util.add_position_iter(a)
+ret = ut.add_position_iter(a)
 assert(a != [7, 6, 3, 7])
 ```
 
@@ -127,7 +129,7 @@ Furthermore, your function should also take an optional argument `number_from`(d
 
 
 ```python
-ret = util.add_position_iter([0, 0, 3, 1], number_from=3)
+ret = ut.add_position_iter([0, 0, 3, 1], number_from=3)
 assert(ret == [3, 4, 8, 7])
 ```
 
@@ -152,7 +154,7 @@ An example behavior is as follows:
 
 ```python
 roster = {'kyu': set(['cs182']), 'david': set(['cs182'])}
-util.remove_course(roster, 'kyu', 'cs182')
+ut.remove_course(roster, 'kyu', 'cs182')
 assert(roster == {'kyu': set([]), 'david': set(['cs182'])})
 ```
 
@@ -161,7 +163,7 @@ Now write a function called `copy_remove_course`. The specifications are the sam
 
 ```python
 roster = {'kyu': set(['cs182']), 'david': set(['cs182'])}
-new_roster = util.copy_remove_course(roster, 'kyu', 'cs182')
+new_roster = ut.copy_remove_course(roster, 'kyu', 'cs182')
 assert(roster == {'kyu': set(['cs182']), 'david': set(['cs182'])})
 assert(new_roster == {'kyu': set([]), 'david': set(['cs182'])})
 
