@@ -1,0 +1,140 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{hyperref}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{cleveref}
+\usepackage{enumitem}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\title{CS 182: Problem Set 1}
+\author{Alan Turing}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Introduction:}  
+Welcome to the first official homework for CS182!  As you are hopefully already aware, this PDF comprises the written component of the first problem set.  In addition to solving the problems found below, you will also need to complete the coding part of the assignment, found in the Github repo.  Finally, we'd like to remind you that while you are allowed a partner for the coding part of the assignment, you are \textbf{NOT} allowed a partner for this and all future written components.  All written work should be yours and yours alone.  This being said, in addition to being able to ask questions at office hours, you are allowed to discuss questions with fellow classmates, provided 1) you note the people with whom you collaborated, and 2) you \textbf{DO NOT} copy any answers.  Please write up the solutions to all problems independently.
+
+\bigskip
+\textbf{Collaborators:}
+
+\clearpage
+
+\textbf{Problem 1:}
+Which of the following are true and which are false? Explain your answers.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Depth-first search always expands at least as many nodes as A* search with an admissible heuristic.
+    \item h(n) = 0 is an admissible heuristic for the \href{https://en.wikipedia.org/wiki/15_puzzle}{15-Puzzle} (https://en.wikipedia.org/wiki/15\_puzzle).
+    \item A* is of no use in robotics because percepts, states, and actions are continuous.
+    \item Breadth-first search is complete even if zero step costs are allowed.
+    \item Assume that a rook can move on a chessboard any number of squares in a straight line, vertically or horizontally, but cannot jump over other pieces. Manhattan distance is an admissible heuristic for the problem of moving the rook from square A to square B in the smallest number of moves.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 1:}
+% TODO: Your solution to Problem 1
+
+\clearpage
+
+\textbf{Problem 2:}
+The iterative lengthening search algorithm is an iterative analog of uniform cost search. The idea is to use increasing limits on path cost. If a node is generated whose path cost exceeds the current limit, it is immediately discarded. For each new iteration, the limit is set to the lowest path cost of any node discarded in the previous iteration.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Show that this algorithm is optimal for general path costs.
+    \item Consider a uniform tree with branching factor b, solution depth d, and unit step costs. How many iterations will iterative lengthening require?
+    \item Now consider step costs drawn from the continuous range $[\epsilon, 1]$, where $0 < \epsilon < 1$. How many iterations are required in the worst case?
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 2:}
+% TODO: Your solution to Problem 2
+
+\clearpage
+
+\textbf{Problem 3:}
+Describe a state space in which iterative deepening search performs much worse than depth-first search (for example, $O(n^2)$ vs. $O(n)$).
+\bigskip
+
+\textbf{Solution 3:}
+% TODO: Your solution to Problem 3
+
+\clearpage
+
+\textbf{Problem 4:}
+Prove each of the following statements, or give a counterexample:
+\begin{enumerate}[label=(\alph*)]
+    \item Breadth-first search is a special case of uniform-cost search.
+    \item Depth-first search is a special case of best-first tree search.
+    \item Uniform-cost search is a special case of A* search.
+\end{enumerate}
+\bigskip
+
+\textbf{Solution 4:}
+% TODO: Your solution to Problem 4
+
+\clearpage
+
+\textbf{Problem 5:}
+Prove that if a heuristic is consistent, it must be admissible. Construct an admissible heuristic that is not consistent.
+\bigskip
+
+\textbf{Solution 5:}
+% TODO: Your solution to Problem 5
+
+
+\end{document}
+
