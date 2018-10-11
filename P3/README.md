@@ -58,7 +58,7 @@ Hint: You should beat the greedy solution.
 
 In this project, you will implement value iteration and Q-learning. You will test your agents first on Gridworld (from class), then apply them to a simulated robot controller (Crawler) and Pacman. 
 
-Note: The framework for MDPs and reinforcement learning in this assignment is the same as the one discussed in class. However the reward specification is different than the one given in AIMA. While AIMA provides a helpful guide to this topic, if you want further notes on in the style of the assignment consult the text <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/the-book.html">_Reinforcement Learning_ by Sutton & Barto</a> available at the link for free.
+Note: The framework for MDPs and reinforcement learning in this assignment is the same as the one discussed in class. However the reward specification is different than the one given in AIMA. While AIMA provides a helpful guide to this topic, if you want further notes on in the style of the assignment consult the text <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf">_Reinforcement Learning_ by Sutton & Barto</a> available at the link for free.
 
 As in previous projects, this project includes an autograder for you to grade your solutions on your machine. This can be run on all questions with the command:
 
