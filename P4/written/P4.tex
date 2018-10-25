@@ -1,0 +1,216 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{hyperref}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{cleveref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\title{CS 182: Problem Set 4}
+\author{Alan Turing}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Introduction:}  
+Welcome to the fourth official homework for CS182!  As you are hopefully already aware, this PDF comprises the written component of the second problem set.  In addition to solving the problems found below, you will also need to complete the coding part of the assignment, found in the Github repo.  Finally, we'd like to remind you that while you are allowed a partner for the coding part of the assignment, you are \textbf{NOT} allowed a partner for this and all future written components.  All written work should be yours and yours alone.  This being said, in addition to being able to ask questions at office hours, you are allowed to discuss questions with fellow classmates, provided 1) you note the people with whom you collaborated, and 2) you \textbf{DO NOT} copy any answers.  Please write up the solutions to all problems independently.
+
+\bigskip
+\textbf{Collaborators:}
+
+\clearpage
+
+\textbf{Problem 1 (The Coin Problem) -- 3 Points:}
+Ankit and Aidi decide to play a coin game to show how we can use HMMs for sequence analysis problems. Aidi tosses first, then they take turns based on rules described below. The game finishes when the subsequence "HTH" appears, and whoever last flips the coin wins. Each player can flip the coin for multiple turns in a row, and the rules for stopping and switching to the other partner are as follows:
+
+\begin{enumerate}
+    \item Every time Aidi flips the coin, she also flips an extra unfair coin (P(H) = 0.3). She stops if the extra unfair coin lands heads. Otherwise, she keeps flipping the fair and extra biased coin (at the same time). The flips of the extra coin are not recorded.
+    \item Every time Ankit flips the coin, he only flips the fair coin until H appears (and all flips are recorded).
+\end{enumerate}
+You're given a sequence of recorded coin fips. You'd like to infer the winner and the flips of each player.
+
+Describe an HMM to model this game (draw a diagram with nodes rep and edges/arrows).
+
+Hint: Make sure to draw an HMM model!  \textbf{NOT} an FSM!
+
+  
+\begin{enumerate}[label=(\alph*)]
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 1:}
+% TODO: Your solution to Problem 1
+
+\clearpage
+
+\textbf{Problem 2 (Typing Simulation) -- 9 Points:}
+For this problem, you will be playing a typing simulation. Let random variable $E$ represent the observed key press, and $X$ represent the hidden (intended) key press. We have a language with 4 letters (A, B, C, D), and a keyboard arranged as a circle.
+
+\begin{table}[htb]
+\centering
+    \begin{tabular}{|c|c|}
+      \hline
+        A & B \\\hline
+        C & D \\\hline
+    \end{tabular}
+\end{table}
+
+At any time, the probability of hitting the intended key is 50\%, and the probability of hitting the neighboring keys is 25\%. For example, $P(E | X = \mathrm{B})$:
+\begin{table}[htb]
+\centering
+    \begin{tabular}{|c|c|}
+      \hline
+        0.25 & 0.5 \\\hline
+        0 & 0.25 \\\hline
+    \end{tabular}
+\end{table}
+
+We will construct a filtering model for constructing the belief state for this problem.
+\bigskip
+
+\begin{enumerate}[label=(\alph*)]
+    \item (1 Point) Assuming a uniform prior distribution, calculate the condition probability table (CPT) of $P(X=x | E=e)$ for all $x$ and $e$.
+    \item (2 Points) Now let the prior distribution be:
+    \begin{table}[htb]
+    \centering
+        \begin{tabular}{|c|c|}
+          \hline
+            x & P(X=x) \\\hline
+            A & 0.4 \\\hline
+            B & 0.2 \\\hline
+            C & 0.1 \\\hline
+            D & 0.3 \\\hline
+        \end{tabular}
+    \end{table}
+    
+    Calculate the CPT $P(X=x | E=e)$ for all $x$ and $e$.
+    \item (3 Points) Consider the following transition model for $P(X' | X)$:
+    \begin{table}[!htb]
+    \centering
+        \begin{tabular}{|c|c|c|c|c|}
+          \hline
+             & A' & B' & C' & D' \\\hline
+            Begin & 1 & 0 & 0 & 0 \\\hline
+            A & 0.5 & 0.5 & 0 & 0 \\\hline
+            B & 0 & 0.5 & 0.5 & 0 \\\hline
+            C & 0.5 & 0 & 0 & 0.5 \\\hline
+            D & 0.25 & 0.25 & 0.25 & 0.25 \\\hline
+        \end{tabular}
+    \end{table}
+    
+    For this problem we are concerned with true (hidden) state sequences, as opposed to observations. What is the probability under this model of the sequence of letters "A B B C D"? How about "A A B A"? What is $P(X_3=x | X_1 = \mathrm{A}, X_2 = \mathrm{B})$ for all $x$?
+    
+    \item (3 Points) Finally we consider the full filtering problem in which we compute $P(X_n | E_1, \ldots, E_n)$. Let "A B B C D" be the sequence of observed key strokes. What is the current belief state of the model? That is compute $P(X_n = x | E_1 = \mathrm{A}, E_2=\mathrm{B}, E_3=\mathrm{B}, E_4 = \mathrm{C}, E_5=\mathrm{D})$ for all $x$ and $n = 2, 3, 4, 5$.
+    
+    Hint: $$P(X_n | E_1, ..., E_n) \propto P(E_n|X_n)\sum_{x_{n-1}}P(X_n|x_{n-1})B(x_{n-1})$$
+    
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 2:}
+% TODO: Your solution to Problem 2
+
+\clearpage
+
+\textbf{Problem 3 (Robotic Motion Planning) -- 4 Points:}
+Describe using pseudocode an RRT-based planning algorithm that uses more than two trees. Make sure to consider issues such as the maximum number of allowable trees, when to start a tree, and when to attempt connections between trees.
+
+What are the types of problems for which this algorithm would perform better than RRT or bi-directional RRT?
+
+\bigskip
+
+\textbf{Solution 3:}
+% TODO: Your solution to Problem 3
+
+\clearpage
+
+\textbf{Problem 4 (Ethics) -- 4 Points:}
+This question asks you to make an ethical argument about the implementation of an algorithm for autonomous vehicles, in the context of the following hypothetical scenario we discussed in class:
+
+\emph{You are part of a programming team hired by the major’s office of San Francisco. The mayor’s office wants your team to design a set of autonomous emergency vehicles to be used in the city starting in 2050, when a law will be passed forbidding any non-AV (besides bicycles, skateboards, etc.) from driving in the city.}
+
+Your task is to \textbf{pick three of ethical values} that need to be taken into account when designing AV’s (they do not need to be the ethical considerations discussed in class, but they can be.) Then, \textbf{answer the following two questions}:
+\begin{enumerate}
+    \item Why did you choose these three particular ethical values? \\Think about questions like:
+        \begin{itemize}
+            \item What are morally important aspects of the design problem? 
+            \item What morally important features of the situation that the AV’s need to represent? 
+            \item What goal does the AV have?
+        \end{itemize}
+    \item For each of the ethical value: do you think that this ethical value should built into the algorithm? (For example, could environmental impact be captured as a cost function, or safety be built in as a constraint?)
+    \begin{itemize}
+        \item If not, why not?
+        \item If yes: what approach would you take to building in this ethical value? (If you like: use the RRT algorithm as a starting point.)
+    \end{itemize}
+\end{enumerate}
+
+We expect that:
+\begin{itemize}
+    \item You focus on one or two points of discussion for each question.
+    \item You provide reasons in support of your answers (i.e., explain why you chose your answer).
+    \item You are clear and concise – stick to plain, unadorned language.
+    \item You do not do any outside research.
+    \item You demonstrate a thoughtful engagement with the questions.
+\end{itemize}
+
+\bigskip
+
+\textbf{Solution 4:}
+% TODO: Your solution to Problem 3
+
+\end{document}
